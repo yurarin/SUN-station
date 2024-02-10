@@ -5,3 +5,7 @@ a {
 .card {
     border: none;
 }
+
+.sm {
+    font-size: 15px;
+}

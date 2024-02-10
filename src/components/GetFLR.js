@@ -19,8 +19,8 @@ const GetFLR = () => {
         `https://api.nasa.gov/DONKI/FLR?startDate=${formatTodayDateUTC}&endDate=${formatTodayDateUTC}&api_key=${apiKey}`
       )
       .then((response) => {
-        setFlrID(response.data[2].flrID);
-        setClassType(response.data[2].classType);
+        setFlrID(response.data[0].flrID);
+        setClassType(response.data[0].classType);
         setDate(formatTodayDateUTC);
       });
   }, []);

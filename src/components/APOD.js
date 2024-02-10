@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -14,9 +15,11 @@ const APOD = () => {
     axios
       .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
       .then((response) => {
+        console.log(response.data);
         setImgUrl(response.data.url);
         setTitle(response.data.title);
         setCopyright(response.data.copyright);
+        console.log(copyright);
       });
   }, []);
 
@@ -29,7 +32,7 @@ const APOD = () => {
         <h4>
           <b>{title}</b>
         </h4>
-        <p>by {copyright}</p>
+        {copyright ? <p>by {copyright}</p> : null}
       </div>
       <div class="shadow-lg rounded-4">
         <img class="apod-img" src={imgUrl} />
